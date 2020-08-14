@@ -23,6 +23,13 @@ if(isset($_POST["update"]))
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="ajax.js"></script>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+    $(document).ready(function() {
+    $('#example').DataTable();
+    } );
+    </script>
 	<style>
 		#country,#state{
  width: 100%;
@@ -53,7 +60,8 @@ if(isset($_POST["update"]))
 					</div>
                 </div>
             </div>
-            <table class="table table-striped table-hover">
+<!--             <table class="table table-striped table-hover"> -->
+            	<table id="example" class="table table-striped table-bordered" style="width:80%">
                 <thead>
                     <tr>
 						<th>
@@ -138,19 +146,19 @@ if(isset($_POST["update"]))
 					<div class="modal-body">					
 						<div class="form-group">
 							<label>First Name</label>
-							<input type="text" id="fname" name="fname" class="form-control" required>
+							<input type="text" id="fname" name="fname" class="form-control" placeholder="Enter First Name" required pattern="[A-Za-z]{2,15}" title="Minimum Length 2 and Maximum Length 15/Enter only Alphabets">
 						</div>
 						<div class="form-group">
 							<label>Last Name</label>
-							<input type="text" id="lname" name="lname" class="form-control" required>
+							<input type="text" id="lname" name="lname" class="form-control" placeholder="Enter Last Name" required pattern="[A-Za-z]{2,15}" title="Minimum Length 2">
 						</div>
 						<div class="form-group">
 							<label>Email</label>
-							<input type="email" id="email" name="email" class="form-control" required>
+							<input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" required title="Enter in Email format">
 						</div>
 						<div class="form-group">
 							<label>Mobile No.</label>
-							<input type="number" id="phone" name="phone" class="form-control" required>
+							<input type="number" id="phone" name="phone" class="form-control" placeholder="Enter mobile" required pattern="^[6-9][0-9]{9}" title="Mobile Number Should Began With 6/7/8/9 with valid 10 digit format">
 						</div>
 						<div class="form-group">
 						<label>Country</label><br>

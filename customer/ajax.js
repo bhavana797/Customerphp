@@ -2,11 +2,11 @@ $(document).ready(function(e){
     // Submit form data via Ajax
     $("#user_form").on('submit', function(e){
         e.preventDefault();
+        alert("insert data");
         $.ajax({
             type: 'POST',
             url: 'save.php',
             data: new FormData(this),
-            dataType: 'json',
             contentType: false,
             cache: false,
             processData:false,
@@ -14,7 +14,8 @@ $(document).ready(function(e){
                 $('.submitBtn').attr("disabled","disabled");
                 $('#user_form').css("opacity",".5");
             },
-            success: function(response){ //console.log(response);
+            success: function(response){
+            alert("insert dta success"); //console.log(response);
                 $('.statusMsg').html('');
                 if(response.status == 1){
                     $('#user_form')[0].reset();
@@ -110,7 +111,6 @@ $("#user_formupdate").on('submit', function(e){
             type: 'POST',
             url: 'updateinfo.php',
             data: new FormData(this),
-            dataType: 'json',
             contentType: false,
             cache: false,
             processData:false,
@@ -128,7 +128,7 @@ $("#user_formupdate").on('submit', function(e){
                 }
                 $('#user_formupdate').css("opacity","");
                 $(".submitBtn").removeAttr("disabled");
-                // location.reload();
+             location.reload();
             }
         });
     });
